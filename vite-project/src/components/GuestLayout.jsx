@@ -9,11 +9,9 @@ const GuestLayout = () => {
         
     }
   return (
-    <div className='login-signup-form animated fadeInDown'>
-    <div className='form'>
+    
         <Outlet/>
-    </div>    
-    </div>
+    
   
   )
 }
