@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import axiosClient from "../axios-client";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Signup = () => {
-  const onSubmit = (ev) => ev.preventDefault();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfimationRef = useRef();
+
+  const {setUser,setToken} = useStateContext()
+
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+    const payLoad = {
+      name:nameRef.current.value,
+      email:emailRef.current.value,
+      password:passwordRef.current.value,
+      password_confirmation: passwordConfimationRef.current.value
+    }
+    axiosClient.post('/signup', payLoad)
+    .then(({data}) => {
+
+    })
+  }
+
+
   return (
-    <div className="login-signup-form animated fadeInDown">sss
+    <div className="login-signup-form animated fadeInDown">
       <div className="form">
         <form action="" onSubmit={onSubmit}>
           <h1 className="title">Signup fo free</h1>
