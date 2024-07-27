@@ -27,7 +27,7 @@ const Signup = () => {
     .catch(err => {
       const response = err.response;
       if(response && response.status === 422){
-        console.log(response.data.errors)...
+        console.log(response.data.errors)
       }
     })
   }
@@ -38,10 +38,10 @@ const Signup = () => {
       <div className="form">
         <form action="" onSubmit={onSubmit}>
           <h1 className="title">Signup fo free</h1>
-          <input type="text" placeholder="Fullname" />
-          <input type="email" placeholder="Email Address" />
-          <input type="password" placeholder="Password" />
-          <input type="password" placeholder="Password Confirmation" />
+          <input ref={nameRef} type="text" placeholder="Fullname" />
+          <input ref={emailRef} type="email" placeholder="Email Address" />
+          <input ref={passwordRef} type="password" placeholder="Password" />
+          <input ref={passwordConfimationRef} type="password" placeholder="Password Confirmation" />
           <button className="btn btn-block">Signup</button>
           <p className="message">
             Already Registered? <Link to="/login">Sign in</Link>
